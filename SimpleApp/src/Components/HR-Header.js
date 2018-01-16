@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Header, Title, Content, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
 
 
-export default class App extends React.Component {
+export default class HRHeader extends React.Component {
     render() {
         return (
             <Header>
