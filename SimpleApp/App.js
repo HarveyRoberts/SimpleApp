@@ -1,12 +1,11 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native'
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
+import {createStore,applyMiddleware} from 'redux';
 import firebase from 'firebase';
 import { Container } from 'native-base';
-import HRHeader from './src/Components/HR-Header.js';
-import HRFooter from './src/Components/HR-Footer.js';
 import HRContent from './src/Components/HR-Content.js';
+
+import ReduxThunk from 'redux-thunk';
 
 
 //no need to write Reducers/index (finds index by default)
@@ -14,13 +13,27 @@ import reducers from './src/Reducers';
 
 
 export default class App extends React.Component {
+    componentWillMount(){
+        // Initialize Firebase
+        const config = {
+            apiKey: "AIzaSyBAmS2efOfNakPGISb5PJ-nfE1nl4pVXRQ",
+            authDomain: "simpleapp-c14a5.firebaseapp.com",
+            databaseURL: "https://simpleapp-c14a5.firebaseio.com",
+            projectId: "simpleapp-c14a5",
+            storageBucket: "simpleapp-c14a5.appspot.com",
+            messagingSenderId: "610527197503"
+        };
+        firebase.initializeApp(config);
+
+    }
+
+
   render() {
-    return (
-        <Provider store={createStore(reducers)}>
+      const store = createStore(reducers,{},applyMiddleware(ReduxThunk));
+      return (
+        <Provider store={store}>
             <Container>
-                <HRHeader/>
                 <HRContent/>
-                <HRFooter/>
             </Container>
         </Provider>
     );

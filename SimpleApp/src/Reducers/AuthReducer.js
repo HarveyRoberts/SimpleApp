@@ -1,10 +1,18 @@
-import {EMAIL_CHANGED,PASSWORD_CHANGED} from "../Actions/Types";
+import {EMAIL_CHANGED,PASSWORD_CHANGED,LOGIN_USER_SUCCESS,LOGIN_USER_FAIL,ACTIVATE_SPINNER} from "../Actions/Types";
 
-const INIT_STATE = { email:'', password:''};
+const INIT_STATE = {
+    email:'',
+    password:'',
+    user:null,
+    error:'',
+    loading:false,
+    isLoggedIn:false
+};
 
 /*reducer compares old state and new state*/
 /*takes in action and old state*/
 export default (state=INIT_STATE,action) => {
+    console.log(action);
     switch(action.type) {
         case EMAIL_CHANGED:
             //need to changed the state correctly because of how JS works ^^
@@ -22,6 +30,12 @@ export default (state=INIT_STATE,action) => {
             return {
                 ...state, password: action.payload
             };
+        case LOGIN_USER_SUCCESS:
+            return{...state,user:action.payload,error:'Success!',loading:false,isLoggedIn:true};
+        case LOGIN_USER_FAIL:
+            return{...state,error:'Invalid email or password.',loading:false,isLoggedIn:false};
+        case ACTIVATE_SPINNER:
+            return{...state,loading:true,error:''};
         default:
             return state;
     }
