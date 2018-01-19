@@ -1,6 +1,7 @@
 import React from 'react';
-import {Form,Item,Label,Input,Button,Card,CardItem,Body,Text,Spinner,Container} from 'native-base';
+import {Form,Item,Label,Input,Button,Card,CardItem,Body,Text,Spinner,Container,Content} from 'native-base';
 import HRButtonFull from './HR-ButtonFull';
+import HRHeader from './HR-Header';
 import {connect} from 'react-redux';
 import {emailChanged, passwordChanged,logUserIn} from '../Actions/index';
 
@@ -34,18 +35,6 @@ class HRSigninForm extends React.Component {
                     </CardItem>
                 </Card>
             );
-        }else if(this.props.error === 'Success!') {
-            return (
-                <Card >
-                    <CardItem style={{backgroundColor:'#5ecd6e'}}>
-                        <Body>
-                        <Text style={{color:'white'}}>
-                            {this.props.error}
-                        </Text>
-                        </Body>
-                    </CardItem>
-                </Card>
-            );
         }
     }
 
@@ -57,6 +46,7 @@ class HRSigninForm extends React.Component {
         }else {
             return (
                 <Form>
+                    <HRHeader title='Welcome'/>
                     {this.showError()}
                     <Item stackedLabel>
                         <Label>Email</Label>
@@ -74,9 +64,11 @@ class HRSigninForm extends React.Component {
 
     render(){
         return(
-            <Form>
-                {this.showContent()}
-            </Form>
+            <Content>
+                <Form>
+                    {this.showContent()}
+                </Form>
+            </Content>
         );
 
     }

@@ -4,13 +4,13 @@ import { Container, Header, Title, Content, FooterTab, Button, Left, Right, Body
 
 export default class HRHeader extends React.Component {
 
-    showMenu(){
-        if(this.props.showMenu) {
+    showRight(){
+        if(this.props.rightIcon) {
             return (
                 <Right>
 
                     <Button transparent>
-                        <Icon name='menu' />
+                        <Icon name={this.props.rightIcon} />
                     </Button>
                 </Right>
             );
@@ -20,16 +20,32 @@ export default class HRHeader extends React.Component {
         );
     }
 
+    showLeft(){
+        if(this.props.leftIcon) {
+            return (
+                <Left>
+
+                    <Button transparent>
+                        <Icon name={this.props.leftIcon} />
+                    </Button>
+                </Left>
+            );
+        }
+        return (
+            <Left/>
+        );
+    }
+
     render() {
         return (
             <Header>
-                <Left/>
+                {this.showLeft()}
                 <Body>
                     <Title>
                         {this.props.title}
                     </Title>
                 </Body>
-                {this.showMenu()}
+                {this.showRight()}
             </Header>
         );
     }
