@@ -1,9 +1,10 @@
 import React from 'react';
-import {Form,Item,Label,Input,Button,Card,CardItem,Body,Text,Spinner,Container,Content} from 'native-base';
+import {Form,Item,Label,Input,Button,Card,CardItem,Body,Text,Container,Content} from 'native-base';
 import HRButtonFull from './HR-ButtonFull';
 import HRHeader from './HR-Header';
 import {connect} from 'react-redux';
 import {emailChanged, passwordChanged,logUserIn} from '../Actions/index';
+import {ActivityIndicator} from 'react-native';
 
 class HRSigninForm extends React.Component {
 
@@ -41,7 +42,7 @@ class HRSigninForm extends React.Component {
     showContent(){
         if(this.props.loading) {
             return (
-                <Spinner color='blue' />
+                <ActivityIndicator size="large" style={{marginTop:240}} color="#1898ff" />
             );
         }else {
             return (
@@ -56,7 +57,7 @@ class HRSigninForm extends React.Component {
                         <Label>Password</Label>
                         <Input secureTextEntry={true} onChangeText={this.onPasswordChanged.bind(this)} value={this.props.password}/>
                     </Item>
-                    <HRButtonFull onPress={this.onSignIn.bind(this)}/>
+                    <HRButtonFull onPress={this.onSignIn.bind(this)} text='Welcome'/>
                 </Form>
             );
         }

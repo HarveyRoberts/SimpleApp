@@ -7,7 +7,7 @@ export default class HRButtonFull extends React.Component {
         return(
             <Button block style={styles.signInButton} onPress={this.props.onPress}>
                 <Text style={styles.signInButtonText}>
-                    Sign In
+                    {this.props.text}
                 </Text>
             </Button>
         );

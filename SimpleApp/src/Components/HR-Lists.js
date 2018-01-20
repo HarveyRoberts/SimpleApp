@@ -1,11 +1,15 @@
 import React from 'react';
-import {Card,CardItem,Body,Text,Content,Container} from 'native-base';
+import {Card,CardItem,Body,Text,Content,Container,Button,Icon} from 'native-base';
 import HRFooter from './HR-Footer';
 import HRHeader from './HR-Header';
 
 import { Actions } from 'react-native-router-flux';
 
 class HRLists extends React.Component {
+
+    clickedList(){
+        Actions.HandleList();
+    }
 
     render(){
         return(
@@ -18,6 +22,9 @@ class HRLists extends React.Component {
                             <Text>
                                 LISTS
                             </Text>
+                            <Button onPress={this.clickedList.bind(this)}>
+                                <Icon name="md-person"/>
+                            </Button>
                             </Body>
                         </CardItem>
                     </Card>

@@ -9,7 +9,7 @@ export default class HRHeader extends React.Component {
             return (
                 <Right>
 
-                    <Button transparent>
+                    <Button transparent onPress={this.props.onPressRight}>
                         <Icon name={this.props.rightIcon} />
                     </Button>
                 </Right>
@@ -25,7 +25,7 @@ export default class HRHeader extends React.Component {
             return (
                 <Left>
 
-                    <Button transparent>
+                    <Button transparent onPress={this.props.onPressLeft}>
                         <Icon name={this.props.leftIcon} />
                     </Button>
                 </Left>

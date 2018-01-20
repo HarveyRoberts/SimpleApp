@@ -25,7 +25,7 @@ class HRHome extends React.Component {
                 <HRFooter
                     onPressProfile={() => {Actions.Profile()}}
                     onPressSettings={() => {Actions.Settings()}}
-                    onPressLists={() => {Actions.Lists()}}
+                    onPressLists={() => {Actions.ListSection()}}
                 />
             </Container>
         );
