@@ -1,4 +1,4 @@
-import {EMAIL_CHANGED,PASSWORD_CHANGED,LOGIN_USER_SUCCESS,LOGIN_USER_FAIL,ACTIVATE_SPINNER} from "../Actions/Types";
+import {EMAIL_CHANGED,PASSWORD_CHANGED,LOGIN_USER_SUCCESS,LOGIN_USER_FAIL,ACTIVATE_SPINNER,LOGIN_USER_OUT_SUCCESS} from "../Actions/Types";
 
 const INIT_STATE = {
     email:'',
@@ -31,11 +31,13 @@ export default (state=INIT_STATE,action) => {
                 ...state, password: action.payload
             };
         case LOGIN_USER_SUCCESS:
-            return{...state,user:action.payload,error:'Success!',loading:false,isLoggedIn:true};
+            return{...state,user:action.payload,error:'',loading:false,isLoggedIn:true};
         case LOGIN_USER_FAIL:
             return{...state,error:'Invalid email or password.',loading:false,isLoggedIn:false};
         case ACTIVATE_SPINNER:
-            return{...state,loading:true,error:''};
+            return{...state,loading:true,error:'',user:null,email:'',password:''};
+        case LOGIN_USER_OUT_SUCCESS:
+            return {...state,loading:false,isLoggedIn:false};
         default:
             return state;
     }

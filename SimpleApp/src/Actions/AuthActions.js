@@ -1,4 +1,4 @@
-import {EMAIL_CHANGED, PASSWORD_CHANGED,LOGIN_USER_SUCCESS,LOGIN_USER_FAIL,ACTIVATE_SPINNER} from "./Types";
+import {EMAIL_CHANGED, PASSWORD_CHANGED,LOGIN_USER_SUCCESS,LOGIN_USER_FAIL,ACTIVATE_SPINNER,LOGIN_USER_OUT_SUCCESS} from "./Types";
 import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
 
@@ -34,6 +34,13 @@ export const logUserIn = ({email,password}) => {
     };
 };
 
+export const logUserOut = () => {
+    return (dispatch) => {
+        dispatch({type: ACTIVATE_SPINNER});
+        loginUserOutSuccess(dispatch);
+    };
+};
+
 
 const loginUserFail = (dispatch) => {
     dispatch({
@@ -47,5 +54,13 @@ const loginUserSuccess = (dispatch, user) => {
     dispatch({
         type: LOGIN_USER_SUCCESS,
         payload:user
+    });
+};
+
+const loginUserOutSuccess = (dispatch) => {
+
+    Actions.Auth();
+    dispatch({
+        type: LOGIN_USER_OUT_SUCCESS
     });
 };

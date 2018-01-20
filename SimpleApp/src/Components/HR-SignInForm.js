@@ -1,6 +1,5 @@
 import React from 'react';
 import {Form,Item,Label,Input,Button,Card,CardItem,Body,Text,Container,Content} from 'native-base';
-import HRButtonFull from './HR-ButtonFull';
 import HRHeader from './HR-Header';
 import {connect} from 'react-redux';
 import {emailChanged, passwordChanged,logUserIn} from '../Actions/index';
@@ -57,7 +56,11 @@ class HRSigninForm extends React.Component {
                         <Label>Password</Label>
                         <Input secureTextEntry={true} onChangeText={this.onPasswordChanged.bind(this)} value={this.props.password}/>
                     </Item>
-                    <HRButtonFull onPress={this.onSignIn.bind(this)} text='Welcome'/>
+                    <Button primary style={{width:320, paddingLeft:115}}  onPress={this.onSignIn.bind(this)}>
+                        <Text>
+                            Sign In
+                        </Text>
+                    </Button>
                 </Form>
             );
         }

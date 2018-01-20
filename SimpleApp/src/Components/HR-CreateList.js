@@ -1,9 +1,8 @@
 import React from'react';
-import{Container,Content,Card,CardItem,Form,Item,Label,Input} from 'native-base';
+import{Container,Content,Card,CardItem,Form,Item,Label,Input,Button,Text} from 'native-base';
 import HRHeader from './HR-Header';
 import HRFooter from './HR-Footer';
 import {Actions} from 'react-native-router-flux';
-import HRButtonFull from './HR-ButtonFull';
 
 
 
@@ -27,7 +26,11 @@ class HRCreateList extends React.Component {
                             <Label>Words</Label>
                             <Input/>
                         </Item>
-                        <HRButtonFull text='Create'/>
+                        <Button primary style={{width:320, paddingLeft:115}}>
+                            <Text>
+                                Create
+                            </Text>
+                        </Button>
                     </Form>
                 </Content>
                 <HRFooter
