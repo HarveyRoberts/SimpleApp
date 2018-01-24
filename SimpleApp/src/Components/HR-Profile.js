@@ -1,16 +1,15 @@
 import React from 'react';
-import {Card,CardItem,Body,Text,Content,Container} from 'native-base';
+import { Card, CardItem, Body, Text, Content, Container } from 'native-base';
 import HRFooter from './HR-Footer';
 import HRHeader from './HR-Header';
 
-import { Actions } from 'react-native-router-flux';
 
 class HRProfile extends React.Component {
 
-    render(){
-        return(
+    render() {
+        return (
             <Container>
-                <HRHeader title='Profile'/>
+                <HRHeader title='Profile' />
                 <Content>
                     <Card >
                         <CardItem>
@@ -23,13 +22,12 @@ class HRProfile extends React.Component {
                     </Card>
                 </Content>
                 <HRFooter
-                    onPressHome={() => {Actions.Home()}}
-                    onPressSettings={() => {Actions.Settings()}}
-                    onPressLists={() => {Actions.ListSection()}}
+                    onPressHome={() => {}}
+                    onPressSettings={() => {}}
+                    onPressLists={() => {}}
                 />
             </Container>
         );
-
     }
 }
 export default HRProfile;

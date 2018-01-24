@@ -1,14 +1,15 @@
+
 import React from 'react';
-import { Container, Header, Title, Content, FooterTab, Button, Left, Right, Body, Icon } from 'native-base';
+import { Header, Title, Text, Button, Left, Right, Body, Icon } from 'native-base';
 
 
 export default class HRHeader extends React.Component {
 
-    showRight(){
-        if(this.props.rightIcon) {
-            return (
+    showRight() {
+        if (this.props.rightIcon) {
+            return (   
                 <Right>
-
+                    <Text /> 
                     <Button transparent onPress={this.props.onPressRight}>
                         <Icon name={this.props.rightIcon} />
                     </Button>
@@ -16,12 +17,12 @@ export default class HRHeader extends React.Component {
             );
         }
         return (
-            <Right/>
+            <Right />
         );
     }
 
-    showLeft(){
-        if(this.props.leftIcon) {
+    showLeft() {
+        if (this.props.leftIcon) {
             return (
                 <Left>
 
@@ -32,7 +33,7 @@ export default class HRHeader extends React.Component {
             );
         }
         return (
-            <Left/>
+            <Left />
         );
     }
 

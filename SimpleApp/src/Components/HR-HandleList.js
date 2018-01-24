@@ -2,17 +2,14 @@ import React from'react';
 import{Container,Content,Card,CardItem,Body,Text} from 'native-base';
 import HRHeader from './HR-Header';
 import HRFooter from './HR-Footer';
-import {Actions} from 'react-native-router-flux';
 
 
 
 class HRHandleList extends React.Component {
 
     goBack() {
-        Actions.Lists();
     }
     goAddList(){
-        Actions.CreateList();
     }
 
     render () {
@@ -45,9 +42,9 @@ class HRHandleList extends React.Component {
                     </Card>
                 </Content>
                 <HRFooter
-                    onPressHome={() => {Actions.Home()}}
-                    onPressSettings={() => {Actions.Settings()}}
-                    onPressProfile={() => {Actions.Profile()}}
+                    onPressHome={() => {}}
+                    onPressSettings={() => {}}
+                    onPressProfile={() => {}}
                 />
             </Container>
         );

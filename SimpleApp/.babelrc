@@ -6,3 +6,8 @@
     }
   }
 }
+
+{
+  "presets": [ "react-native" ],
+  "sourceMaps": true
+}

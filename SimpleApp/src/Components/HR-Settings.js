@@ -5,7 +5,6 @@ import HRHeader from './HR-Header';
 import {connect} from 'react-redux';
 import {logUserOut} from '../Actions/index';
 
-import { Actions } from 'react-native-router-flux';
 
 class HRProfile extends React.Component {
     onSignOut() {
@@ -34,9 +33,9 @@ class HRProfile extends React.Component {
                     </Button>
                 </Content>
                 <HRFooter
-                    onPressHome={() => {Actions.Home()}}
-                    onPressProfile={() => {Actions.Profile()}}
-                    onPressLists={() => {Actions.ListSection()}}
+                    onPressHome={() => {}}
+                    onPressProfile={() => {}}
+                    onPressLists={() => {}}
                 />
             </Container>
         );

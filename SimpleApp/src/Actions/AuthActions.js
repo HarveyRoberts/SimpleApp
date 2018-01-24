@@ -1,45 +1,45 @@
-import {EMAIL_CHANGED, PASSWORD_CHANGED,LOGIN_USER_SUCCESS,LOGIN_USER_FAIL,ACTIVATE_SPINNER,LOGIN_USER_OUT_SUCCESS} from "./Types";
 import firebase from 'firebase';
-import { Actions } from 'react-native-router-flux';
+import { 
+    EMAIL_CHANGED, 
+    PASSWORD_CHANGED, 
+    LOGIN_USER_SUCCESS, 
+    LOGIN_USER_FAIL, 
+    ACTIVATE_SPINNER, 
+    LOGIN_USER_OUT_SUCCESS 
+} from './Types';
 
-export const emailChanged = (text) => {
-    return {
-        type:EMAIL_CHANGED,
-        payload:text
-    };
-};
-export const passwordChanged = (text) => {
+export const emailChanged = (text) => ({
+        type: EMAIL_CHANGED,
+        payload: text
+    });
+export const passwordChanged = (text) => 
     //Automatically dispatches
-    return {
-        type:PASSWORD_CHANGED,
-        payload:text
-    };
-};
+     ({
+        type: PASSWORD_CHANGED,
+        payload: text
+    });
 
-export const logUserIn = ({email,password}) => {
+export const logUserIn = ({ email, password }) => 
     //Redux Thunk
     //We can now manually dispatch an action in the .then
-    return (dispatch) => {
-        dispatch({type: ACTIVATE_SPINNER});
-        firebase.auth().signInWithEmailAndPassword(email,password)
+     (dispatch) => {
+        dispatch({ type: ACTIVATE_SPINNER });
+        firebase.auth().signInWithEmailAndPassword(email, password)
         //if there is an error in the reducer for login success
         //the catch with be executed because firebase thinks its
         //an error in the request
-            .then(user => loginUserSuccess(dispatch,user))
+            .then(user => loginUserSuccess(dispatch, user))
             .catch(() => {
-                firebase.auth().createUserWithEmailAndPassword(email,password)
-                    .then(user => loginUserSuccess(dispatch,user))
+                firebase.auth().createUserWithEmailAndPassword(email, password)
+                    .then(user => loginUserSuccess(dispatch, user))
                     .catch(() => loginUserFail(dispatch));
             });
     };
-};
 
-export const logUserOut = () => {
-    return (dispatch) => {
-        dispatch({type: ACTIVATE_SPINNER});
+export const logUserOut = () => (dispatch) => {
+        dispatch({ type: ACTIVATE_SPINNER });
         loginUserOutSuccess(dispatch);
     };
-};
 
 
 const loginUserFail = (dispatch) => {
@@ -49,17 +49,13 @@ const loginUserFail = (dispatch) => {
 };
 
 const loginUserSuccess = (dispatch, user) => {
-
-    Actions.Main();
     dispatch({
         type: LOGIN_USER_SUCCESS,
-        payload:user
+        payload: user
     });
 };
 
 const loginUserOutSuccess = (dispatch) => {
-
-    Actions.Auth();
     dispatch({
         type: LOGIN_USER_OUT_SUCCESS
     });

@@ -6,7 +6,7 @@ const INIT_STATE = {
     user:null,
     error:'',
     loading:false,
-    isLoggedIn:false
+    isLoggedIn:false,
 };
 
 /*reducer compares old state and new state*/

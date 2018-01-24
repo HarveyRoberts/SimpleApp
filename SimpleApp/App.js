@@ -3,7 +3,7 @@ import {Provider} from 'react-redux';
 import {createStore,applyMiddleware} from 'redux';
 import firebase from 'firebase';
 import { Container } from 'native-base';
-import RootNavigator from './src/Navigation';
+/*import RootNavigator from './src/Navigation';*/
 
 import ReduxThunk from 'redux-thunk';
 
@@ -33,7 +33,7 @@ export default class App extends React.Component {
       return (
         <Provider store={store}>
             <Container>
-                <RootNavigator/>
+                {/*<RootNavigator/>*/}
             </Container>
         </Provider>
     );

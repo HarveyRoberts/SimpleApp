@@ -1,20 +1,19 @@
 import React from 'react';
-import {Card,CardItem,Body,Text,Content,Container,Button,Icon} from 'native-base';
+import { Card, CardItem, Body, Text, Content, Container, Button, Icon } from 'native-base';
 import HRFooter from './HR-Footer';
 import HRHeader from './HR-Header';
 
-import { Actions } from 'react-native-router-flux';
 
 class HRLists extends React.Component {
 
-    clickedList(){
-        Actions.HandleList();
+    clickedList() {
+
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <Container>
-                <HRHeader title='Lists'/>
+                <HRHeader title='Lists' />
                 <Content>
                     <Card >
                         <CardItem>
@@ -23,20 +22,19 @@ class HRLists extends React.Component {
                                 LISTS
                             </Text>
                             <Button onPress={this.clickedList.bind(this)}>
-                                <Icon name="md-person"/>
+                                <Icon name="md-person" />
                             </Button>
                             </Body>
                         </CardItem>
                     </Card>
                 </Content>
                 <HRFooter
-                    onPressHome={() => {Actions.Home()}}
-                    onPressSettings={() => {Actions.Settings()}}
-                    onPressProfile={() => {Actions.Profile()}}
+                    onPressHome={() => {}}
+                    onPressSettings={() => {}}
+                    onPressProfile={() => {}}
                 />
             </Container>
         );
-
     }
 }
 export default HRLists;
