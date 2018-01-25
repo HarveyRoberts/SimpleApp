@@ -1,9 +1,9 @@
 import React from 'react';
-import {Card,CardItem,Body,Text,Content,Container,Button} from 'native-base';
+import { Card, CardItem, Body, Text, Content, Container, Button } from 'native-base';
+import { connect } from 'react-redux';
 import HRFooter from './HR-Footer';
 import HRHeader from './HR-Header';
-import {connect} from 'react-redux';
-import {logUserOut} from '../Actions/index';
+import { logUserOut } from '../Actions/index';
 
 
 class HRProfile extends React.Component {
@@ -11,10 +11,10 @@ class HRProfile extends React.Component {
         this.props.logUserOut();
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <Container>
-                <HRHeader title='Settings'/>
+                <HRHeader title='Settings' />
                 <Content>
                     <Card >
                         <CardItem>
@@ -26,7 +26,11 @@ class HRProfile extends React.Component {
                         </CardItem>
                     </Card>
 
-                    <Button danger style={{width:320, paddingLeft:115}} onPress={this.onSignOut.bind(this)}>
+                    <Button 
+                    danger 
+                    style={{ width: 320, paddingLeft: 115 }} 
+                    onPress={this.onSignOut.bind(this)}
+                    >
                         <Text>
                             Sign Out
                         </Text>
@@ -39,8 +43,7 @@ class HRProfile extends React.Component {
                 />
             </Container>
         );
-
     }
 }
 
-export default connect(null, {logUserOut})(HRProfile);
+export default connect(null, { logUserOut })(HRProfile);

@@ -1,19 +1,26 @@
-import {EMAIL_CHANGED,PASSWORD_CHANGED,LOGIN_USER_SUCCESS,LOGIN_USER_FAIL,ACTIVATE_SPINNER,LOGIN_USER_OUT_SUCCESS} from "../Actions/Types";
+import { 
+    EMAIL_CHANGED, 
+    PASSWORD_CHANGED, 
+    LOGIN_USER_SUCCESS, 
+    LOGIN_USER_FAIL, 
+    ACTIVATE_SPINNER, 
+    LOGIN_USER_OUT_SUCCESS 
+} from '../Actions/Types';
 
 const INIT_STATE = {
-    email:'',
-    password:'',
-    user:null,
-    error:'',
-    loading:false,
-    isLoggedIn:false,
+    email: '',
+    password: '',
+    user: null,
+    error: '',
+    loading: false,
+    isLoggedIn: false,
 };
 
 /*reducer compares old state and new state*/
 /*takes in action and old state*/
-export default (state=INIT_STATE,action) => {
+export default (state = INIT_STATE, action) => {
     console.log(action);
-    switch(action.type) {
+    switch (action.type) {
         case EMAIL_CHANGED:
             //need to changed the state correctly because of how JS works ^^
             //basically we need to create immutable state
@@ -28,18 +35,39 @@ export default (state=INIT_STATE,action) => {
             };
         case PASSWORD_CHANGED:
             return {
-                ...state, password: action.payload
+                ...state, 
+                password: action.payload
             };
         case LOGIN_USER_SUCCESS:
-            return{...state,user:action.payload,error:'',loading:false,isLoggedIn:true};
+            return { 
+                ...state, 
+                user: action.payload, 
+                error: '', 
+                loading: false, 
+                isLoggedIn: true 
+            };
         case LOGIN_USER_FAIL:
-            return{...state,error:'Invalid email or password.',loading:false,isLoggedIn:false};
+            return { 
+                ...state, 
+                error: 'Invalid email or password.', 
+                loading: false, 
+                isLoggedIn: false 
+            };
         case ACTIVATE_SPINNER:
-            return{...state,loading:true,error:'',user:null,email:'',password:''};
+            return { ...state, 
+                loading: true, 
+                error: '', 
+                user: null, 
+                email: '', 
+                password: '' 
+            };
         case LOGIN_USER_OUT_SUCCESS:
-            return {...state,loading:false,isLoggedIn:false};
+            return { 
+                ...state, 
+                loading: false, 
+                isLoggedIn: false 
+            };
         default:
             return state;
     }
-
 };
