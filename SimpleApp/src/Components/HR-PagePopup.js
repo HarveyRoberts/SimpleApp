@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, Modal, Button } from 'react-native';
-import { Text } from 'native-base';
+import { View, Modal, Button, Text } from 'react-native';
 
 const HRPagePopup = props => (
     <Modal animationType="slide" visible={props.visible}>

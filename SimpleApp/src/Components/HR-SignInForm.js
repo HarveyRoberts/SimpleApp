@@ -1,8 +1,6 @@
 import React from 'react';
-import { Form, Item, Label, Input, Button, Card, CardItem, Body, Text, Content } from 'native-base';
-import { ActivityIndicator } from 'react-native';
+import { ActivityIndicator, Text } from 'react-native';
 import { connect } from 'react-redux';
-import HRHeader from './HR-Header';
 import { emailChanged, passwordChanged, logUserIn } from '../Actions/index';
 
 
@@ -26,15 +24,9 @@ class HRSigninForm extends React.Component {
     showError() {
         if (this.props.error === 'Invalid email or password.') {
             return (
-                <Card >
-                    <CardItem style={{ backgroundColor: 'red' }}>
-                        <Body>
                             <Text style={{ color: 'white' }}>
                                 {this.props.error}
                             </Text>
-                        </Body>
-                    </CardItem>
-                </Card>
             );
         }
     }

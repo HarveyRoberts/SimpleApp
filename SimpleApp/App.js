@@ -2,10 +2,9 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import firebase from 'firebase';
-import { Container } from 'native-base';
 
 import ReduxThunk from 'redux-thunk';
-import HRHome from './src/Components/HR-Home';
+import Navigation from './src/Navigation';
 /*import RootNavigator from './src/Navigation';*/
 
 
@@ -32,10 +31,7 @@ export default class App extends React.Component {
       const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
       return (
         <Provider store={store}>
-            <Container>
-                {/*<RootNavigator/>*/}
-                <HRHome />
-            </Container>
+                <Navigation />
         </Provider>
     );
   }

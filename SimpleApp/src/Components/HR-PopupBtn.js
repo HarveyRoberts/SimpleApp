@@ -1,18 +1,9 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
-import { Card, CardItem, Body, Text } from 'native-base';
+import { TouchableOpacity, Text } from 'react-native';
 
 const HRPopupBtn = props => (
-    <TouchableOpacity onPress={props.onPressed}>
-        <Card >
-            <CardItem>
-                <Body>
-                    <Text>
-                        See Popup
-                    </Text>
-                </Body>
-            </CardItem>
-        </Card>
+    <TouchableOpacity style={{marginTop:50}} onPress={props.onPressed}>
+        <Text> HRPopupBtn </Text>
     </TouchableOpacity>
 );
 
