@@ -1,10 +1,18 @@
 import React from 'react';
-import { ActivityIndicator, Text } from 'react-native';
+import { ActivityIndicator, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, logUserIn } from '../Actions/index';
 
 
 class HRSigninForm extends React.Component {
+
+    static navigationOptions = {
+        title: 'Welcome',
+        headerRight: 
+        <TouchableOpacity style={{marginRight:10}}>
+            <Text>Sign Up</Text>
+        </TouchableOpacity>
+    }
 
     onEmailChanged(text) {
         this.props.emailChanged(text);
@@ -17,8 +25,9 @@ class HRSigninForm extends React.Component {
     }
 
     onSignIn() {
-        const { email, password } = this.props;
-        this.props.logUserIn({ email, password });
+        this.props.navigation.navigate('Main');
+        //const { email, password } = this.props;
+        //this.props.logUserIn({ email, password });
     }
 
     showError() {
@@ -38,44 +47,38 @@ class HRSigninForm extends React.Component {
             );
         }
             return (
-                <Form>
-                    <HRHeader title='Welcome' />
+                <View>
                     {this.showError()}
-                    <Item stackedLabel>
-                        <Label>Email</Label>
-                        <Input 
+                    <View>
+                        <TextInput 
                         onChangeText={this.onEmailChanged.bind(this)} 
                         value={this.props.email} 
                         />
-                    </Item>
-                    <Item stackedLabel last>
-                        <Label>Password</Label>
-                        <Input 
+                    </View>
+                    <View>
+                        <TextInput 
                         secureTextEntry 
                         onChangeText={this.onPasswordChanged.bind(this)} 
                         value={this.props.password} 
                         />
-                    </Item>
-                    <Button 
-                    primary 
+                    </View>
+                    <TouchableOpacity
                     style={{ width: 320, paddingLeft: 115 }} 
                     onPress={this.onSignIn.bind(this)}
                     >
                         <Text>
                             Sign In
                         </Text>
-                    </Button>
-                </Form>
+                    </TouchableOpacity>
+                </View>
             );
     }
 
     render() {
         return (
-            <Content>
-                <Form>
-                    {this.showContent()}
-                </Form>
-            </Content>
+            <View>
+                {this.showContent()}
+            </View>
         );
     }
 }

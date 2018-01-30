@@ -10,11 +10,16 @@ import  HRCreateList from './Components/HR-CreateList';
 
 import {
     TabNavigator,
+    StackNavigator
   } from 'react-navigation';
   
-  const Navigation = TabNavigator({
-    Main: { screen: HRHome },
-    Setup: { screen: HRLists },
-    
+  const Navigation = StackNavigator({
+    Auth: { screen: HRSignInForm },
+    Main: { screen: TabNavigator({
+      Home: { screen: HRHome },
+      Lists: { screen: HRLists },
+      Profile: { screen: HRProfile },
+      Settings: { screen: HRSettings },
+    }) }  
   });
   export default Navigation;
