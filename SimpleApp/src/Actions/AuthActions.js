@@ -49,6 +49,7 @@ const loginUserFail = (dispatch) => {
 };
 
 const loginUserSuccess = (dispatch, user) => {
+    //navigate to home screen
     dispatch({
         type: LOGIN_USER_SUCCESS,
         payload: user

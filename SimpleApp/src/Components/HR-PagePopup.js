@@ -8,14 +8,13 @@ const HRPagePopup = props => (
                 flexDirection: 'row', 
                 justifyContent: 'flex-end', 
                 marginTop: 20, 
-                marginRight: 5,
-                backgroundColor: 'red' 
+                marginRight: 5
             }}
         > 
             <Button 
                 title="close" 
                 onPress={props.onClose} 
-                style={{ width: 50, height: 20, backgroundColor: 'blue' }} 
+                style={{ width: 50, height: 20}} 
             />
         </View>
         <View 

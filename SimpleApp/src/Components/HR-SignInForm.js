@@ -2,6 +2,7 @@ import React from 'react';
 import { ActivityIndicator, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, logUserIn } from '../Actions/index';
+import HRInput from './HR-Input';
 
 
 class HRSigninForm extends React.Component {
@@ -25,17 +26,16 @@ class HRSigninForm extends React.Component {
     }
 
     onSignIn() {
-        this.props.navigation.navigate('Main');
-        //const { email, password } = this.props;
-        //this.props.logUserIn({ email, password });
+        const { email, password } = this.props;
+        this.props.logUserIn({ email, password });
     }
 
     showError() {
         if (this.props.error === 'Invalid email or password.') {
             return (
-                            <Text style={{ color: 'white' }}>
-                                {this.props.error}
-                            </Text>
+                <Text style={{ color: 'red' }}>
+                    {this.props.error}
+                </Text>
             );
         }
     }
@@ -47,26 +47,28 @@ class HRSigninForm extends React.Component {
             );
         }
             return (
-                <View>
+                <View style={{marginTop:15}}>
                     {this.showError()}
                     <View>
-                        <TextInput 
+                        <HRInput 
+                        label='Email'
                         onChangeText={this.onEmailChanged.bind(this)} 
                         value={this.props.email} 
                         />
                     </View>
                     <View>
-                        <TextInput 
+                        <HRInput 
+                        label='Password'
                         secureTextEntry 
                         onChangeText={this.onPasswordChanged.bind(this)} 
                         value={this.props.password} 
                         />
                     </View>
                     <TouchableOpacity
-                    style={{ width: 320, paddingLeft: 115 }} 
+                    style={{width:180,height:50,marginTop:20,backgroundColor:'#4387fd',alignItems:'center',alignContent:'center',alignSelf:'center',justifyContent:'center',borderRadius:50}} 
                     onPress={this.onSignIn.bind(this)}
                     >
-                        <Text>
+                        <Text style={{fontSize:21,color:'white'}}>
                             Sign In
                         </Text>
                     </TouchableOpacity>
