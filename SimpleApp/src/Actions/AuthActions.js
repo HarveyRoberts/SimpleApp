@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import { NavigationActions } from 'react-navigation';
 import { 
     EMAIL_CHANGED, 
     PASSWORD_CHANGED, 
@@ -29,11 +30,9 @@ export const logUserIn = ({ email, password }) =>
         //the catch with be executed because firebase thinks its
         //an error in the request
             .then(user => loginUserSuccess(dispatch, user))
-            .catch(() => {
-                firebase.auth().createUserWithEmailAndPassword(email, password)
-                    .then(user => loginUserSuccess(dispatch, user))
-                    .catch(() => loginUserFail(dispatch));
-            });
+            .catch(() => 
+                loginUserFail(dispatch)
+            );
     };
 
 export const logUserOut = () => (dispatch) => {
@@ -49,7 +48,7 @@ const loginUserFail = (dispatch) => {
 };
 
 const loginUserSuccess = (dispatch, user) => {
-    //navigate to home screen
+    dispatch(NavigationActions.navigate({ routeName: 'Home' }));
     dispatch({
         type: LOGIN_USER_SUCCESS,
         payload: user
@@ -61,3 +60,4 @@ const loginUserOutSuccess = (dispatch) => {
         type: LOGIN_USER_OUT_SUCCESS
     });
 };
+

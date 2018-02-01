@@ -7,14 +7,15 @@ const HRPagePopup = props => (
             style={{ 
                 flexDirection: 'row', 
                 justifyContent: 'flex-end', 
-                marginTop: 20, 
-                marginRight: 5
+                marginTop: 10, 
+                marginRight: 5,
+                marginBottom: 10
             }}
         > 
             <Button 
                 title="close" 
                 onPress={props.onClose} 
-                style={{ width: 50, height: 20}} 
+                style={{ width: 50, height: 20 }} 
             />
         </View>
         <View 
@@ -23,7 +24,7 @@ const HRPagePopup = props => (
             flexDirection: 'column', 
             justifyContent: 'center', 
             alignItems: 'center', 
-            backgroundColor: 'green' 
+            backgroundColor: '#ECEFF1'
             }}
         >
             <Text style={{ alignItems: 'center', justifyContent: 'center' }}>

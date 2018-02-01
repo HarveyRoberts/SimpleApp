@@ -1,11 +1,10 @@
 import React from 'react';
-import { Provider } from 'react-redux';
+import { Provider, connect } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import firebase from 'firebase';
-
+import { addNavigationHelpers } from 'react-navigation';
 import ReduxThunk from 'redux-thunk';
 import Navigation from './src/Navigation';
-/*import RootNavigator from './src/Navigation';*/
 
 
 //no need to write Reducers/index (finds index by default)
@@ -31,8 +30,24 @@ export default class App extends React.Component {
       const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
       return (
         <Provider store={store}>
-                <Navigation />
+                <AppNavigation />
         </Provider>
     );
   }
 }
+
+const AppNav = ({ dispatch, nav }) => (
+    <Navigation 
+        navigation={addNavigationHelpers({ 
+        dispatch,
+        state: nav,
+        })} 
+    />
+);
+
+const mapStateToProps = state => ({
+    nav: state.nav, // needed for addNavigationHelpers
+  });
+
+const AppNavigation = connect(mapStateToProps)(AppNav);
+  

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActivityIndicator, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { ActivityIndicator, Text, View, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, logUserIn } from '../Actions/index';
 import HRInput from './HR-Input';
@@ -10,7 +10,7 @@ class HRSigninForm extends React.Component {
     static navigationOptions = {
         title: 'Welcome',
         headerRight: 
-        <TouchableOpacity style={{marginRight:10}}>
+        <TouchableOpacity style={{ marginRight: 10 }}>
             <Text>Sign Up</Text>
         </TouchableOpacity>
     }
@@ -47,7 +47,7 @@ class HRSigninForm extends React.Component {
             );
         }
             return (
-                <View style={{marginTop:15}}>
+                <View style={{ marginTop: 15 }}>
                     {this.showError()}
                     <View>
                         <HRInput 
@@ -65,10 +65,20 @@ class HRSigninForm extends React.Component {
                         />
                     </View>
                     <TouchableOpacity
-                    style={{width:180,height:50,marginTop:20,backgroundColor:'#4387fd',alignItems:'center',alignContent:'center',alignSelf:'center',justifyContent:'center',borderRadius:50}} 
+                    style={{ 
+                        width: 180, 
+                        height: 50, 
+                        marginTop: 20, 
+                        backgroundColor: '#4387fd', 
+                        alignItems: 'center', 
+                        alignContent: 'center', 
+                        alignSelf: 'center', 
+                        justifyContent: 'center', 
+                        borderRadius: 50 
+                    }} 
                     onPress={this.onSignIn.bind(this)}
                     >
-                        <Text style={{fontSize:21,color:'white'}}>
+                        <Text style={{ fontSize: 21, color: 'white' }}>
                             Sign In
                         </Text>
                     </TouchableOpacity>
