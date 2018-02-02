@@ -5,6 +5,11 @@ import { logUserOut } from '../Actions/index';
 
 
 class HRProfile extends React.Component {
+
+    static navigationOptions = {
+        title: 'Settings'
+    }
+
     onSignOut() {
         this.props.logUserOut();
     }

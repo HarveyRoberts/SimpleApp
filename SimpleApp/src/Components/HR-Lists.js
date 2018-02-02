@@ -4,6 +4,10 @@ import { Text } from 'react-native';
 
 class HRLists extends React.Component {
 
+    static navigationOptions = {
+        title: 'Lists'
+    }
+
     clickedList() {
 
     }

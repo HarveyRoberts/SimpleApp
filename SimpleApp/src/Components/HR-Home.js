@@ -7,6 +7,10 @@ import HRPagePopup from './HR-PagePopup';
 
 class HRHome extends React.Component {
 
+    static navigationOptions = {
+        title: 'Home'
+    }
+
     state = { showPopup: false };
 
     pressedPopupBtn() {
