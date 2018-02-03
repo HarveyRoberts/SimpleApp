@@ -2,8 +2,10 @@ import React from 'react';
 import { ActivityIndicator, Text, View, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, logUserIn } from '../Actions/index';
-import HRInput from './HR-Input';
-
+import HRInput from './HRInputs/HRInput';
+import HRInputAndAction from './HRInputs/HRInputAndAction';
+import HRHeaderBasic from './HRHeaders/HRHeaderBasic';
+import HRCard from './HRCards/HRCard';
 
 class HRSigninForm extends React.Component {
 
@@ -49,21 +51,16 @@ class HRSigninForm extends React.Component {
             return (
                 <View style={{ marginTop: 15 }}>
                     {this.showError()}
-                    <View>
-                        <HRInput 
-                        label='Email'
-                        onChangeText={this.onEmailChanged.bind(this)} 
-                        value={this.props.email} 
-                        />
-                    </View>
-                    <View>
-                        <HRInput 
-                        label='Password'
-                        secureTextEntry 
-                        onChangeText={this.onPasswordChanged.bind(this)} 
-                        value={this.props.password} 
-                        />
-                    </View>
+                    <HRInput 
+                    onChangeText={this.onEmailChanged.bind(this)} 
+                    value={this.props.email} 
+                    placeholder='Email'
+                    />
+                    <HRInput
+                    onChangeText={this.onPasswordChanged.bind(this)} 
+                    placeholder='Password'
+                    value={this.props.password} 
+                    />
                     <TouchableOpacity
                     style={{ 
                         width: 180, 
@@ -82,6 +79,8 @@ class HRSigninForm extends React.Component {
                             Sign In
                         </Text>
                     </TouchableOpacity>
+
+                    <HRCard />
                 </View>
             );
     }

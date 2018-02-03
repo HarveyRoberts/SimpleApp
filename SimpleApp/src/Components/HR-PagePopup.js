@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Modal, Button, Text } from 'react-native';
 
 const HRPagePopup = props => (
-    <Modal animationType="slide" visible={props.visible}>
+    <Modal animationType="slide" onRequestClose={() => {}} visible={props.visible}>
         <View 
             style={{ 
                 flexDirection: 'row', 
