@@ -30,8 +30,8 @@ export const logUserIn = ({ email, password }) =>
         //the catch with be executed because firebase thinks its
         //an error in the request
             .then(user => loginUserSuccess(dispatch, user))
-            .catch(() => 
-                loginUserFail(dispatch)
+            .catch((error) => 
+                loginUserFail(dispatch, error)
             );
     };
 
@@ -41,7 +41,8 @@ export const logUserOut = () => (dispatch) => {
     };
 
 
-const loginUserFail = (dispatch) => {
+const loginUserFail = (dispatch, error) => {
+    console.log(error);
     dispatch({
         type: LOGIN_USER_FAIL
     });

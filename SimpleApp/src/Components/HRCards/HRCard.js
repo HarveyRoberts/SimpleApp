@@ -1,15 +1,17 @@
 import React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
 const HRCard = props => (
     <View style={styles.container}>
-        <View style={styles.section2}>
-            <Image source={{ uri: 'https://semantic-ui.com/images/avatar2/large/kristy.png' }} style={{ height: 50, width: 50 }} />
+        <View style={styles.section1}>
+            {props.section1}
         </View>
-        <View style={styles.section3}>
+        <View style={styles.section2}>
             { props.children }
         </View>
-
+        <View style={styles.section3}>
+            {props.section3}
+        </View>
     </View>
 );
 

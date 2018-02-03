@@ -3,6 +3,8 @@ import { ActivityIndicator, Text, View, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, logUserIn } from '../Actions/index';
 import HRInput from './HRInputs/HRInput';
+import HRHeaderCenter from './HRHeaders/HRHeaderCenter';
+import HRMessage from './HRMessages/HRMessage';
 
 class HRSigninForm extends React.Component {
 
@@ -32,9 +34,11 @@ class HRSigninForm extends React.Component {
     showError() {
         if (this.props.error === 'Invalid email or password.') {
             return (
-                <Text style={{ color: 'red' }}>
-                    {this.props.error}
-                </Text>
+                <HRMessage 
+                textColor='white' 
+                bgColor='red' 
+                message={this.props.error}
+                />
             );
         }
     }
@@ -46,7 +50,16 @@ class HRSigninForm extends React.Component {
             );
         }
             return (
-                <View style={{ marginTop: 15 }}>
+                <View>
+                    <HRHeaderCenter 
+                    titleColor='white' 
+                    title='Sign In' 
+                    subtitle='Enter your email and password' 
+                    bgColor='#03A9F5' 
+                    subtitleColor='white' 
+                    titleSize={28}
+                    subtitleSize={18}
+                    />
                     {this.showError()}
                     <HRInput 
                     onChangeText={this.onEmailChanged.bind(this)} 
@@ -63,7 +76,7 @@ class HRSigninForm extends React.Component {
                         width: 180, 
                         height: 50, 
                         marginTop: 20, 
-                        backgroundColor: '#4387fd', 
+                        backgroundColor: '#03A9F5', 
                         alignItems: 'center', 
                         alignContent: 'center', 
                         alignSelf: 'center', 
