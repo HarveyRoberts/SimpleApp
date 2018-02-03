@@ -1,10 +1,10 @@
 import React from 'react';
-import { ActivityIndicator, Text, View, TouchableOpacity } from 'react-native';
+import { ActivityIndicator, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, logUserIn } from '../Actions/index';
 import HRInput from './HRInputs/HRInput';
-import HRHeaderCenter from './HRHeaders/HRHeaderCenter';
 import HRMessage from './HRMessages/HRMessage';
+import HRHeaderCenterGradient from './HRHeaders/HRHeaderCenterGradient';
 
 class HRSigninForm extends React.Component {
 
@@ -51,8 +51,9 @@ class HRSigninForm extends React.Component {
         }
             return (
                 <View>
-                    <HRHeaderCenter 
+                    <HRHeaderCenterGradient 
                     titleColor='white' 
+                    colors={['#04c2f2', '#03A9F5']}
                     title='Sign In' 
                     subtitle='Enter your email and password' 
                     bgColor='#03A9F5' 
@@ -60,35 +61,37 @@ class HRSigninForm extends React.Component {
                     titleSize={28}
                     subtitleSize={18}
                     />
-                    {this.showError()}
-                    <HRInput 
-                    onChangeText={this.onEmailChanged.bind(this)} 
-                    value={this.props.email} 
-                    placeholder='Email'
-                    />
-                    <HRInput
-                    onChangeText={this.onPasswordChanged.bind(this)} 
-                    placeholder='Password'
-                    value={this.props.password} 
-                    />
-                    <TouchableOpacity
-                    style={{ 
-                        width: 180, 
-                        height: 50, 
-                        marginTop: 20, 
-                        backgroundColor: '#03A9F5', 
-                        alignItems: 'center', 
-                        alignContent: 'center', 
-                        alignSelf: 'center', 
-                        justifyContent: 'center', 
-                        borderRadius: 50 
-                    }} 
-                    onPress={this.onSignIn.bind(this)}
-                    >
-                        <Text style={{ fontSize: 21, color: 'white' }}>
-                            Sign In
-                        </Text>
-                    </TouchableOpacity>
+                    <ScrollView>
+                        {this.showError()}
+                        <HRInput 
+                        onChangeText={this.onEmailChanged.bind(this)} 
+                        value={this.props.email} 
+                        placeholder='Email'
+                        />
+                        <HRInput
+                        onChangeText={this.onPasswordChanged.bind(this)} 
+                        placeholder='Password'
+                        value={this.props.password} 
+                        />
+                        <TouchableOpacity
+                        style={{ 
+                            width: 180, 
+                            height: 50, 
+                            marginTop: 20, 
+                            backgroundColor: '#03A9F5', 
+                            alignItems: 'center', 
+                            alignContent: 'center', 
+                            alignSelf: 'center', 
+                            justifyContent: 'center', 
+                            borderRadius: 50 
+                        }} 
+                        onPress={this.onSignIn.bind(this)}
+                        >
+                            <Text style={{ fontSize: 21, color: 'white' }}>
+                                Sign In
+                            </Text>
+                        </TouchableOpacity>
+                    </ScrollView>
                 </View>
             );
     }
