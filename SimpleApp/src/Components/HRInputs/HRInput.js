@@ -4,7 +4,13 @@ import { TextInput, View, StyleSheet, Image } from 'react-native';
 const HRInput = props => (
     <View style={[styles.container, { backgroundColor: props.bgColor }]}>
         <Image
-          style={{ width: 33, height: 30, marginTop: 1, marginRight: 10, opacity: 0.3, backgroundColor: props.iconLeftColor }}
+          style={{ 
+              width: 33,
+              height: 30, 
+              marginTop: 1, 
+              marginRight: 10, 
+              opacity: 0.3, 
+              backgroundColor: props.iconLeftColor }}
           source={{ uri: props.iconLeft }}
         />
         <TextInput
@@ -13,7 +19,14 @@ const HRInput = props => (
         {...props}
         />
         <Image
-          style={{ width: 33, height: 30, marginTop: 1, marginLeft: 10, alignSelf: 'flex-end', opacity: 0.3, backgroundColor: props.iconRightColor }}
+          style={{ 
+              width: 33, 
+              height: 30, 
+              marginTop: 1, 
+              marginLeft: 10, 
+              alignSelf: 'flex-end', 
+              opacity: 0.3, 
+              backgroundColor: props.iconRightColor }}
           source={{ uri: props.iconRight }}
         />
     </View>     

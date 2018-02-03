@@ -5,7 +5,13 @@ const HRInputAndAction = props => (
     <View style={[styles.container, { backgroundColor: props.bgColor }]}>
         <View style={styles.inputContainer}>
             <Image
-            style={{ width: 33, height: 30, marginTop: 1, marginRight: 10, opacity: 0.3, backgroundColor: props.iconLeftColor }}
+            style={{ 
+                width: 33, 
+                height: 30, 
+                marginTop: 1, 
+                marginRight: 10, 
+                opacity: 0.3, 
+                backgroundColor: props.iconLeftColor }}
             source={{ uri: props.iconLeft }}
             />
             <TextInput
@@ -17,7 +23,14 @@ const HRInputAndAction = props => (
             secureTextEntry={props.secureTextEntry}
             />
             <Image
-            style={{ width: 33, height: 30, marginLeft: 1, marginTop: 1, alignSelf: 'flex-end', opacity: 0.3, backgroundColor: props.iconRightColor }}
+            style={{ 
+                width: 33,
+                height: 30, 
+                marginLeft: 1,
+                marginTop: 1, 
+                alignSelf: 'flex-end', 
+                opacity: 0.3, 
+                backgroundColor: props.iconRightColor }}
             source={{ uri: props.iconRight }}
             />
         </View>

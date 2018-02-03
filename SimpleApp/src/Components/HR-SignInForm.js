@@ -3,9 +3,6 @@ import { ActivityIndicator, Text, View, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, logUserIn } from '../Actions/index';
 import HRInput from './HRInputs/HRInput';
-import HRInputAndAction from './HRInputs/HRInputAndAction';
-import HRHeaderBasic from './HRHeaders/HRHeaderBasic';
-import HRCard from './HRCards/HRCard';
 
 class HRSigninForm extends React.Component {
 
@@ -79,8 +76,6 @@ class HRSigninForm extends React.Component {
                             Sign In
                         </Text>
                     </TouchableOpacity>
-
-                    <HRCard />
                 </View>
             );
     }
