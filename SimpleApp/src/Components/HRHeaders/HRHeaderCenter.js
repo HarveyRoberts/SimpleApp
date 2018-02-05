@@ -6,7 +6,15 @@ const HRHeaderCenter = props => (
         <Text style={[styles.title, { color: props.titleColor, fontSize: props.titleSize }]}>
             {props.title}
         </Text>
-        <Text style={[styles.subtitle, { color: props.subtitleColor, fontSize: props.subtitleSize }]}>
+        <Text 
+        style={[
+            styles.subtitle, 
+            { 
+                color: props.subtitleColor, 
+                fontSize: props.subtitleSize 
+            }
+        ]}
+        >
             {props.subtitle}
         </Text>
     </View>

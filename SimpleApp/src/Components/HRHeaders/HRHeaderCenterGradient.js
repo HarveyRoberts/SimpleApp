@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo';
 
-const HRHeaderCenter = props => (
+const HRHeaderCenterGradient = props => (
     <LinearGradient 
     style={[styles.container, { backgroundColor: props.bgColor }]}
     colors={props.colors}
@@ -12,7 +12,15 @@ const HRHeaderCenter = props => (
         <Text style={[styles.title, { color: props.titleColor, fontSize: props.titleSize }]}>
             {props.title}
         </Text>
-        <Text style={[styles.subtitle, { color: props.subtitleColor, fontSize: props.subtitleSize }]}>
+        <Text
+            style={[
+                styles.subtitle, 
+                { 
+                    color: props.subtitleColor, 
+                    fontSize: props.subtitleSize 
+                }
+            ]}
+        >
             {props.subtitle}
         </Text>
     </LinearGradient>
@@ -33,4 +41,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default HRHeaderCenter;
+export default HRHeaderCenterGradient;
